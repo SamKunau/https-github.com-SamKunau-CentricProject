@@ -8,6 +8,15 @@ namespace MIS4200Group6.Models
 {
     public class userDetails
     {
+
+
+
+        //helllooooo
+
+
+
+
+
         [Required]
         public Guid ID { get; set; }
 
