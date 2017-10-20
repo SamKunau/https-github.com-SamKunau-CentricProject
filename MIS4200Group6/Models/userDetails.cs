@@ -8,15 +8,9 @@ namespace MIS4200Group6.Models
 {
     public class userDetails
     {
-
-
-
         //helllooooo
 
         //hello from sam
-
-
-
         [Required]
         public Guid ID { get; set; }
 
