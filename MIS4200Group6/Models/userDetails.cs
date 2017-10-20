@@ -9,7 +9,7 @@ namespace MIS4200Group6.Models
     public class userDetails
     {
         //helllooooo
-
+        //Prof Luce
         //hello from sam X2
         //X2
         [Required]
