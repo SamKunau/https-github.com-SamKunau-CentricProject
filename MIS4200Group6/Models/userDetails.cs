@@ -10,7 +10,8 @@ namespace MIS4200Group6.Models
     {
         //helllooooo
 
-        //hello from sam
+        //hello from sam X2
+        //X2
         [Required]
         public Guid ID { get; set; }
 
