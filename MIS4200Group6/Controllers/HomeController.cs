@@ -15,7 +15,7 @@ namespace MIS4200Group6.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your applicffation description page";
+            ViewBag.Message = "Your application description page";
 
             return View();
         }
