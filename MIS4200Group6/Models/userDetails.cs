@@ -8,11 +8,8 @@ namespace MIS4200Group6.Models
 {
     public class userDetails
     {
-
-
-        //luce say hi
         //helllooooo
-
+        //hi from aaron
 
 
 
