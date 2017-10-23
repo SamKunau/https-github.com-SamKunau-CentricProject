@@ -8,6 +8,15 @@
     <p><a href="https://centricconsulting.com/about-us/centric-experience/" class="btn btn-success">Learn more about The Centric Experience &raquo;</a></p>
 </div>
 
+@using (Html.BeginForm("Index", "Users", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
 <div class="row">
     <div class="col-md-4">
         <h2>Profile Creation</h2>
