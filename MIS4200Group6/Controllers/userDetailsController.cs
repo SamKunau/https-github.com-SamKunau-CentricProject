@@ -19,8 +19,14 @@ namespace MIS4200Group6.Controllers
         private CentricContext db = new CentricContext();
 
         // GET: userDetails
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            var testuserdetails = from u in db.UserDetails select u;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                testuserdetails = testuserdetails.Where(u => u.lastName.Contains(searchString) || u.firstName.Contains(searchString));
+                return View(testuserdetails.ToList());
+            }
             return View(db.UserDetails.ToList());
         }
 
