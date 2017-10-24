@@ -3,7 +3,12 @@
     padding-bottom: 20px;
     background-color: mediumpurple;
     font-family: Arial;
+
    
+}
+.btn-link
+{
+    color:ButtonFace
 }
 
 /* Set padding to keep content from hitting the edges */

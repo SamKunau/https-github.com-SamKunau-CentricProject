@@ -2296,7 +2296,7 @@ fieldset[disabled] .btn-info.active {
 
 .btn-link {
   font-weight: normal;
-  color: #428bca;
+  color: lightgrey;
   cursor: pointer;
   border-radius: 0;
 }
@@ -2319,7 +2319,7 @@ fieldset[disabled] .btn-link {
 
 .btn-link:hover,
 .btn-link:focus {
-  color: #2a6496;
+  color: lightgrey;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -2328,7 +2328,7 @@ fieldset[disabled] .btn-link {
 fieldset[disabled] .btn-link:hover,
 .btn-link[disabled]:focus,
 fieldset[disabled] .btn-link:focus {
-  color: #999999;
+  color: lightgrey;
   text-decoration: none;
 }
 

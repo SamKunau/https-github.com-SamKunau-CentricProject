@@ -8,13 +8,6 @@
     <p><a href="https://centricconsulting.com/about-us/centric-experience/" class="btn btn-success">Learn more about The Centric Experience &raquo;</a></p>
 </div>
 
-@using (Html.BeginForm("Index", "Users", FormMethod.Get))
-{
-    <p>
-        Find by name: @Html.TextBox("searchString")
-        <input type="submit" value="Search" />
-    </p>
-}
 
 
 <div class="row">
@@ -22,18 +15,19 @@
         <h2>Profile Creation</h2>
         
             <p> Create and update your profile regularly as you gain experience and grow within the company </p>
-            <p> @Html.ActionLink("userDetails", "Index", "userDetails")</p>
+            <p> @Html.ActionLink("Create a Profile", "Index", "Account", null, new { @class = "btn btn-primary btn-large" })</p>
+      
         
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Create/Login to your profile &raquo;</a></p>
+       
     </div>
     <div class="col-md-4">
         <h2>Core Values</h2>
         <p>Our core values reflect our professional passions and personal convictions.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn about the core values &raquo;</a></p>
+        <p><a class="btn btn-default" href="https://centricconsulting.com/about-us/core-values/">Learn about the core values &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>Recognize</h2>
         <p>Recognize your colleagues on noticable hardwork and achievements </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Recognize colleagues &raquo;</a></p>
+        <p> @Html.ActionLink("All User Profiles", "Index", "userDetails", null, new { @class = "btn btn-primary btn-large" })</p>
     </div>
 </div>
