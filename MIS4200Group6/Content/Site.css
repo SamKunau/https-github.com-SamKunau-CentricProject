@@ -33,3 +33,14 @@ select,
 textarea {
     max-width: 280px;
 }
+div.jumbotron {
+    color: mediumpurple;
+    font-family: times new roman;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+    background-color: white;
+    border-color: gold;
+    
+    
+}
