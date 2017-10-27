@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: mediumpurple;
+    background-color: rebeccapurple;
     font-family: Arial;
 
    
@@ -34,7 +34,7 @@ textarea {
     max-width: 280px;
 }
 div.jumbotron {
-    color: mediumpurple;
+    color: rebeccapurple;
     font-family: times new roman;
     font-weight: bold;
     font-style: normal;
