@@ -33,13 +33,13 @@ namespace MIS4200Group6.Models
         [Display(Name = "Primary Phone")]
         public string phoneNumber { get; set; }
 
-        [Display(Name = "Office")]
+        [Display(Name = "Business Unit")]
         public string office { get; set; }
 
         [Display(Name = "Current Position")]
         public string Position { get; set; }
 
-        [Display(Name = "Hire Date")]
+        [Display(Name = "Centric Anniversary")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public string HireDate { get; set; }
 
