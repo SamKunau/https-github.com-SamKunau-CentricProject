@@ -137,7 +137,17 @@ namespace MIS4200Group6.Controllers
             {
                 return HttpNotFound();
             }
-            return View(userDetails);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (userDetails.ID == memberID)
+            {
+                return View(userDetails);
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
+            //return View(userDetails);
         }
 
         // POST: userDetails/Delete/5
