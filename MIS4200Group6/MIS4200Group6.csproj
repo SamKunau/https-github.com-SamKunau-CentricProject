@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CoreValuesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\userDetailsController.cs" />
@@ -198,7 +199,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\coreValue.cs" />
+    <Compile Include="Models\CoreValue.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\userDetails.cs" />
@@ -271,6 +272,11 @@
     <Content Include="Views\userDetails\Edit.cshtml" />
     <Content Include="Views\userDetails\Index.cshtml" />
     <Content Include="Views\DuplicateUser.cshtml" />
+    <Content Include="Views\coreValues\Create.cshtml" />
+    <Content Include="Views\coreValues\Delete.cshtml" />
+    <Content Include="Views\coreValues\Details.cshtml" />
+    <Content Include="Views\coreValues\Edit.cshtml" />
+    <Content Include="Views\coreValues\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

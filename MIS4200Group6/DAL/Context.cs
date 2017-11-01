@@ -15,5 +15,7 @@ namespace MIS4200Group6.DAL
         }
 
         public DbSet<userDetails> UserDetails { get; set; }
+
+        public System.Data.Entity.DbSet<MIS4200Group6.Models.CoreValue> CoreValues { get; set; }
     }
 }
