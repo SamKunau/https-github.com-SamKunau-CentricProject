@@ -73,7 +73,7 @@ namespace MIS4200Group6.Controllers
                Guid.TryParse(User.Identity.GetUserId(), out memberId);
                 userDetails.ID = memberId;
                 userDetails.email = User.Identity.Name;
-                userDetails.ID = Guid.NewGuid();
+                //userDetails.ID = Guid.NewGuid();
                 db.UserDetails.Add(userDetails);
 
                 db.SaveChanges();
@@ -96,7 +96,17 @@ namespace MIS4200Group6.Controllers
             {
                 return HttpNotFound();
             }
-            return View(userDetails);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (userDetails.ID == memberID)
+            {
+                return View(userDetails);
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
+
         }
 
         // POST: userDetails/Edit/5

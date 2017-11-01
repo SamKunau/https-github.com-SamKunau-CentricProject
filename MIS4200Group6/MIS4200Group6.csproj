@@ -270,6 +270,7 @@
     <Content Include="Views\userDetails\Edit.cshtml" />
     <Content Include="Views\userDetails\Index.cshtml" />
     <Content Include="Views\DuplicateUser.cshtml" />
+    <Content Include="Views\userDetails\NotAuthenticated.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

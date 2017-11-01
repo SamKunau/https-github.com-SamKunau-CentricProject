@@ -8,11 +8,6 @@ namespace MIS4200Group6.Models
 {
     public class userDetails
     {
-        //helllooooo
-        //Prof Luce
-        //n
-        //hello from sam X2
-        //X2
         [Required]
         public Guid ID { get; set; }
 
@@ -51,11 +46,5 @@ namespace MIS4200Group6.Models
         public string HireDate { get; set; }
 
         public string photo { get; set; }
-
-
-
-
-
-
     }
 }
