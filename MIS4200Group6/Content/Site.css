@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: rebeccapurple;
+    background-color: rgb(53,44,102);
     font-family: Arial;
 
    
@@ -34,7 +34,7 @@ textarea {
     max-width: 280px;
 }
 div.jumbotron {
-    color: rebeccapurple;
+    color: rgb(53, 44, 102);
     font-family: times new roman;
     font-weight: bold;
     font-style: normal;
@@ -43,4 +43,10 @@ div.jumbotron {
     border-color: gold;
     
     
+}
+div.table {
+    background-color:black;
+}
+table.table{
+    background-color:orange;
 }
