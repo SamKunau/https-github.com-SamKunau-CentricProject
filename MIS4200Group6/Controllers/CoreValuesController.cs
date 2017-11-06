@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MIS4200Group6.DAL;
 using MIS4200Group6.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MIS4200Group6.Controllers
 {
@@ -18,6 +19,7 @@ namespace MIS4200Group6.Controllers
         // GET: CoreValues
         public ActionResult Index()
         {
+            ViewBag.ID = new SelectList(db.UserDetails, "ID", "fullName");
             return View(db.CoreValues.ToList());
         }
 
@@ -60,20 +62,29 @@ namespace MIS4200Group6.Controllers
         }
 
         // GET: CoreValues/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CoreValue coreValue = db.CoreValues.Find(id);
-            if (coreValue == null)
+            CoreValue coreValues = db.CoreValues.Find(id);
+            if (coreValues == null)
             {
                 return HttpNotFound();
             }
-            return View(coreValue);
-        }
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (coreValues.recognizer == memberID)
+            {
+                return View(coreValues);
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
 
+        }
         // POST: CoreValues/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -91,18 +102,27 @@ namespace MIS4200Group6.Controllers
         }
 
         // GET: CoreValues/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CoreValue coreValue = db.CoreValues.Find(id);
-            if (coreValue == null)
+            CoreValue coreValues = db.CoreValues.Find(id);
+            if (coreValues == null)
             {
                 return HttpNotFound();
             }
-            return View(coreValue);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (coreValues.recognizer == memberID)
+            {
+                return View(coreValues);
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
         }
 
         // POST: CoreValues/Delete/5

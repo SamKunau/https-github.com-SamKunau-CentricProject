@@ -277,6 +277,8 @@
     <Content Include="Views\coreValues\Details.cshtml" />
     <Content Include="Views\coreValues\Edit.cshtml" />
     <Content Include="Views\coreValues\Index.cshtml" />
+    <Content Include="Views\coreValues\NotAuthenticated.cshtml" />
+    <Content Include="Views\userDetails\NotAuthenticated2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
