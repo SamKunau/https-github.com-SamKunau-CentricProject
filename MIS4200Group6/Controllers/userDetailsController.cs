@@ -104,7 +104,7 @@ namespace MIS4200Group6.Controllers
             }
             else
             {
-                return View("NotAuthenticated");
+                return View("NotAuthenticated2");
             }
 
         }
