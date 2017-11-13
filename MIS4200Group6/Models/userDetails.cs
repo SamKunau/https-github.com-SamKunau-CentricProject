@@ -45,6 +45,9 @@ namespace MIS4200Group6.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public string HireDate { get; set; }
 
+        [Display(Name ="Number of years with Centric")]
+        public Int32 numberOfYears { get; set; }
+
         public string photo { get; set; }
     }
 }

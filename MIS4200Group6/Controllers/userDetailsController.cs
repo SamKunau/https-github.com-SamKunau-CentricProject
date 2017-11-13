@@ -55,7 +55,7 @@ namespace MIS4200Group6.Controllers
             }
             else
             {
-                return View("NotAuthenticated");
+                return View("NotAuthenticated2");
             }
             
         }
@@ -65,7 +65,7 @@ namespace MIS4200Group6.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,email,firstName,lastName,phoneNumber,office,Position,HireDate,photo")] userDetails userDetails)
+        public ActionResult Create([Bind(Include = "ID,email,firstName,lastName,phoneNumber,office,Position,HireDate,numberOfYears,photo")] userDetails userDetails)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +114,7 @@ namespace MIS4200Group6.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,email,firstName,lastName,phoneNumber,office,Position,HireDate,photo")] userDetails userDetails)
+        public ActionResult Edit([Bind(Include = "ID,email,firstName,lastName,phoneNumber,office,Position,HireDate,numberOfYears,photo")] userDetails userDetails)
         {
             if (ModelState.IsValid)
             {
@@ -145,7 +145,7 @@ namespace MIS4200Group6.Controllers
             }
             else
             {
-                return View("NotAuthenticated");
+                return View("NotAuthenticated2");
             }
             //return View(userDetails);
         }
