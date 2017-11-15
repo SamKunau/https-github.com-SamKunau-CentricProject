@@ -21,7 +21,6 @@ namespace MIS4200Group6.Controllers
         {
             ViewBag.ID = new SelectList(db.UserDetails, "ID", "fullName");
             return View(db.CoreValues.ToList());
-           
         }
 
         // GET: CoreValues/Details/5
@@ -50,11 +49,13 @@ namespace MIS4200Group6.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,award,recognizer,recognized,recognizationDate")] CoreValue coreValue)
+        public ActionResult Create([Bind(Include = "ID,award,description,recognizer,recognized,recognizationDate")] CoreValue coreValue)
         {
             if (ModelState.IsValid)
             {
-                
+                Guid memberId;
+                Guid.TryParse(User.Identity.GetUserId(), out memberId);
+                coreValue.recognizer = memberId;
                 db.CoreValues.Add(coreValue);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -92,7 +93,7 @@ namespace MIS4200Group6.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,award,recognizer,recognized,recognizationDate")] CoreValue coreValue)
+        public ActionResult Edit([Bind(Include = "ID,award,description,recognizer,recognized,recognizationDate")] CoreValue coreValue)
         {
             if (ModelState.IsValid)
             {

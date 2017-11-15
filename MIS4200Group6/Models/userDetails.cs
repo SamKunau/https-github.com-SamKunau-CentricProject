@@ -49,5 +49,7 @@ namespace MIS4200Group6.Models
         public Int32 numberOfYears { get; set; }
 
         public string photo { get; set; }
+
+        public string fullName { get { return firstName + " " + lastName; } }
     }
 }

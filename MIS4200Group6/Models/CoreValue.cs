@@ -12,6 +12,9 @@ namespace MIS4200Group6.Models
         [Display(Name ="Core Value Recognized")]
         public CoreValues award { get; set; }
         [Display(Name ="Person Giving the Recognition")]
+
+        //[ForeignKey("fullName")]
+        //public virtual Standard { get; set; }
         public Guid recognizer { get; set; }
         [Display(Name ="Person Receiving the Recognition")]
         public Guid recognized { get; set; }
@@ -19,6 +22,7 @@ namespace MIS4200Group6.Models
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime recognizationDate { get; set; }
         
+       
         public enum CoreValues
         {
             Excellence = 1,
