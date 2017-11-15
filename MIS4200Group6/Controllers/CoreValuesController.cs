@@ -53,6 +53,9 @@ namespace MIS4200Group6.Controllers
         {
             if (ModelState.IsValid)
             {
+                Guid memberId;
+                Guid.TryParse(User.Identity.GetUserId(), out memberId);
+                coreValue.recognizer = memberId;
                 db.CoreValues.Add(coreValue);
                 db.SaveChanges();
                 return RedirectToAction("Index");
