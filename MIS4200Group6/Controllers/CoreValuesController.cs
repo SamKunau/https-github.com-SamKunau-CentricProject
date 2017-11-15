@@ -21,6 +21,7 @@ namespace MIS4200Group6.Controllers
         {
             ViewBag.ID = new SelectList(db.UserDetails, "ID", "fullName");
             return View(db.CoreValues.ToList());
+           
         }
 
         // GET: CoreValues/Details/5
@@ -53,6 +54,7 @@ namespace MIS4200Group6.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.CoreValues.Add(coreValue);
                 db.SaveChanges();
                 return RedirectToAction("Index");
