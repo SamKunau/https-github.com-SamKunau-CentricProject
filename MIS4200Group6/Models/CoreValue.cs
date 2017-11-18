@@ -21,8 +21,10 @@ namespace MIS4200Group6.Models
         [Display(Name = "Date of Recognition")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime recognizationDate { get; set; }
-        
-       
+        [Display(Name = "Description")]
+        [Required(ErrorMessage = "Be Creative!")]
+        public string description { get; set; }
+
         public enum CoreValues
         {
             Excellence = 1,

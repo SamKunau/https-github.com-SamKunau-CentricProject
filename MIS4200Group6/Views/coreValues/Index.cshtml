@@ -16,6 +16,9 @@
             @Html.DisplayNameFor(model => model.award)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.recognizer)
         </th>
         <th>
@@ -31,6 +34,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.award)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.recognizer)
