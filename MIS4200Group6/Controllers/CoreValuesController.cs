@@ -41,7 +41,11 @@ namespace MIS4200Group6.Controllers
         // GET: CoreValues/Create
         public ActionResult Create()
         {
-            return View();
+            if (!User.Identity.IsAuthenticated)
+            {
+                return View("NotAuthenticated");
+            }
+                return View();    
         }
 
         // POST: CoreValues/Create
