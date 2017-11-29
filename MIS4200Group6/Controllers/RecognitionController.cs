@@ -71,12 +71,43 @@ namespace MIS4200Group6.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CoreValue coreValue = db.CoreValues.Find(id);
-            if (coreValue == null)
+             CoreValue Recognition = db.CoreValues.Find(id);
+            if (Recognition == null)
             {
                 return HttpNotFound();
             }
-            return View(coreValue);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (Recognition.recognizer == memberID)
+            {
+                return View(Recognition);
+            }
+            else
+            {
+                return View("NotAuthenticated2");
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //CoreValue coreValue = db.CoreValues.Find(id);
+            //if (coreValue == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(coreValue);
         }
 
         // POST: Recognition/Edit/5

@@ -69,11 +69,12 @@ namespace MIS4200Group6.Controllers
         }
 
         // GET: CoreValues/Edit/5
-        public ActionResult Edit(Guid? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotAuthenticated");
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CoreValue coreValues = db.CoreValues.Find(id);
             if (coreValues == null)
@@ -109,11 +110,12 @@ namespace MIS4200Group6.Controllers
         }
 
         // GET: CoreValues/Delete/5
-        public ActionResult Delete(Guid? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotAuthenticated");
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CoreValue coreValues = db.CoreValues.Find(id);
             if (coreValues == null)

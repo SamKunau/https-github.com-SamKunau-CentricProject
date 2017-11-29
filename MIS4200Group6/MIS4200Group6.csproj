@@ -290,6 +290,7 @@
     <Content Include="Views\Recognition\Details.cshtml" />
     <Content Include="Views\Recognition\Edit.cshtml" />
     <Content Include="Views\Recognition\Index.cshtml" />
+    <Content Include="Views\Recognition\NotAuthenticated2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
