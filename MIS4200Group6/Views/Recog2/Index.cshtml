@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MIS4200Group6.Models.Recog2>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Giver.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserDetails.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurentDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecognitionComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Giver.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserDetails.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurentDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecognitionComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeRecognitionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeRecognitionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeRecognitionID })
+        </td>
+    </tr>
+}
+
+</table>

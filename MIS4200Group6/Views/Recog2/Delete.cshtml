@@ -1,0 +1,56 @@
+﻿@model MIS4200Group6.Models.Recog2
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Recog2</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Giver.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Giver.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserDetails.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDetails.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurentDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurentDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecognitionComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecognitionComments)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
