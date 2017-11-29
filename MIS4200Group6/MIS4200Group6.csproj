@@ -193,17 +193,20 @@
     <Compile Include="Controllers\CoreValuesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Recog2Controller.cs" />
     <Compile Include="Controllers\RecognitionController.cs" />
     <Compile Include="Controllers\userDetailsController.cs" />
     <Compile Include="DAL\Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\CentricContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CoreValue.cs" />
     <Compile Include="Models\FullName.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Recog2.cs" />
     <Compile Include="Models\userDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -290,6 +293,11 @@
     <Content Include="Views\Recognition\Details.cshtml" />
     <Content Include="Views\Recognition\Edit.cshtml" />
     <Content Include="Views\Recognition\Index.cshtml" />
+    <Content Include="Views\Recog2\Create.cshtml" />
+    <Content Include="Views\Recog2\Delete.cshtml" />
+    <Content Include="Views\Recog2\Details.cshtml" />
+    <Content Include="Views\Recog2\Edit.cshtml" />
+    <Content Include="Views\Recog2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
