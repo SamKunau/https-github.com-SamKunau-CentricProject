@@ -68,19 +68,27 @@ namespace MIS4200Group6.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,email,firstName,lastName,phoneNumber,office,Position,HireDate,numberOfYears,photo")] userDetails userDetails)
+        public ActionResult Create([Bind(Include = "ID,email,firstName,lastName,phoneNumber,office,Position,HireDate,numberOfYears,photo")] userDetails userDetails, HttpPostedFileBase file)
         {
+
+            userDetails.photo = "~/Content/Images/";
             if (ModelState.IsValid)
             {
-               Guid memberId;
-               Guid.TryParse(User.Identity.GetUserId(), out memberId);
+                
+                Guid memberId;
+                Guid.TryParse(User.Identity.GetUserId(), out memberId);
                 userDetails.ID = memberId;
                 userDetails.email = User.Identity.Name;
                 //userDetails.ID = Guid.NewGuid();
                 db.UserDetails.Add(userDetails);
 
+                
+
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
+
                 
             }
 
