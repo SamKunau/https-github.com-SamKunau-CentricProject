@@ -19,6 +19,7 @@ namespace MIS4200Group6.Controllers
         private CentricContext db = new CentricContext();
 
         // GET: userDetails
+
         public ActionResult Index(string searchString)
         {
             var testuserdetails = from u in db.UserDetails select u;
@@ -46,6 +47,8 @@ namespace MIS4200Group6.Controllers
         }
 
         // GET: userDetails/Create
+
+        [HttpGet]
         public ActionResult Create()
         {
             if (User.Identity.IsAuthenticated)

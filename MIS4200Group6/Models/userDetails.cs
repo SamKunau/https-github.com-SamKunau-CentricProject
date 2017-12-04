@@ -48,6 +48,7 @@ namespace MIS4200Group6.Models
         [Display(Name ="Number of years with Centric")]
         public Int32 numberOfYears { get; set; }
 
+    
         public string photo { get; set; }
         
         public string fullName { get { return firstName + " " + lastName; } }
