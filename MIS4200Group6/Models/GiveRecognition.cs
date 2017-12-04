@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MIS4200Group6.Models
 {
-    public class Recog2
+    public class GiveRecognition
     {
         [Key]
         public int EmployeeRecognitionID { get; set; }
@@ -16,7 +16,8 @@ namespace MIS4200Group6.Models
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime CurentDateTime { get; set; }
-
+        [Display(Name = "Core value recognized")]
+        public Values values{ get; set; }
 
         [Display(Name = "Comments")]
         public string RecognitionComments { get; set; }
@@ -28,7 +29,7 @@ namespace MIS4200Group6.Models
         [ForeignKey("EmployeeGivingRecog")]
         public virtual userDetails Giver { get; set; }
 
-        public enum CoreValues
+        public enum Values
         {
             Excellence = 1,
             Integrity = 2,
@@ -41,7 +42,8 @@ namespace MIS4200Group6.Models
 
         [Display(Name = "Employee Being Recognized")]
         public Guid ID { get; set; }
-        
+
+        [Display(Name = "Employee Recognizing")]
         [ForeignKey("ID")]
         public virtual userDetails UserDetails { get; set; }
 
