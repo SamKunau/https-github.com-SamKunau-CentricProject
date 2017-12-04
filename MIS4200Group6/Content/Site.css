@@ -59,3 +59,14 @@ html.actionlink{
     color:white;
 
 }
+a.classname {
+    background-color:gold;
+    display: block;
+    width: 150px;
+    height: 45px;
+   text-align:center;
+   font-size:larger;
+   border-color:gray;
+   color:black;
+   
+}
