@@ -194,6 +194,7 @@
     <Compile Include="Controllers\GiveRecognitionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyRecognitionsController.cs" />
     <Compile Include="Controllers\Recog2Controller.cs" />
     <Compile Include="Controllers\RecognitionController.cs" />
     <Compile Include="Controllers\userDetailsController.cs" />
@@ -300,6 +301,11 @@
     <Content Include="Views\GiveRecognitions\Details.cshtml" />
     <Content Include="Views\GiveRecognitions\Edit.cshtml" />
     <Content Include="Views\GiveRecognitions\Index.cshtml" />
+    <Content Include="Views\MyRecognitions\Create.cshtml" />
+    <Content Include="Views\MyRecognitions\Delete.cshtml" />
+    <Content Include="Views\MyRecognitions\Details.cshtml" />
+    <Content Include="Views\MyRecognitions\Edit.cshtml" />
+    <Content Include="Views\MyRecognitions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

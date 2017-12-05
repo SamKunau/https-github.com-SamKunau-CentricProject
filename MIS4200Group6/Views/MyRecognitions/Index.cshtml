@@ -4,61 +4,51 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Recognize an Employee</h2>
+<h2>Your Recognitions!!</h2>
 
-<p>
-    @Html.ActionLink("Give Recognition", "Create",null,new { @class = "classname" })
-</p>
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.values)
+        <th> Who Recognized You -  
+            @Html.DisplayNameFor(model => model.Giver.email)
         </th>
         @*<th>
-            Recognizer's 
-            @Html.DisplayNameFor(model => model.Giver.email)
-        </th>*@
-        <th>
-            Recognizee's
             @Html.DisplayNameFor(model => model.UserDetails.email)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.CurentDateTime)
         </th>
         <th>
-            Recognition 
+            @Html.DisplayNameFor(model => model.values)
+        </th>
+        <th> Recognition 
             @Html.DisplayNameFor(model => model.RecognitionComments)
         </th>
-       
-   
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.values)
+            @Html.DisplayFor(modelItem => item.Giver.email)
         </td>
         @*<td>
-            @Html.DisplayFor(modelItem => item.Giver.email)
-        </td>*@
-        <td>
             @Html.DisplayFor(modelItem => item.UserDetails.email)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.CurentDateTime)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.values)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.RecognitionComments)
         </td>
-       
-        
-        <td>
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeRecognitionID }) |
             @Html.ActionLink("Details", "Details", new { id=item.EmployeeRecognitionID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeRecognitionID })
-        </td>
+        </td>*@
     </tr>
 }
 

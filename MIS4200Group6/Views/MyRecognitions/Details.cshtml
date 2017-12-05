@@ -1,0 +1,58 @@
+﻿@model MIS4200Group6.Models.GiveRecognition
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GiveRecognition</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Giver.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Giver.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserDetails.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDetails.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurentDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurentDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.values)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.values)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecognitionComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecognitionComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeRecognitionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
