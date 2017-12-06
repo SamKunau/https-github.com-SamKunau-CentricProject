@@ -46,6 +46,7 @@ namespace MIS4200Group6.Models
         [Display(Name = "Employee Recognizing")]
         [ForeignKey("ID")]
         public virtual userDetails UserDetails { get; set; }
+        
 
 
     }

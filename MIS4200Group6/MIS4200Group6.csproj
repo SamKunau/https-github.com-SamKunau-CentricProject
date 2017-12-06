@@ -191,6 +191,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CoreValuesController.cs" />
+    <Compile Include="Controllers\GamificationsController.cs" />
     <Compile Include="Controllers\GiveRecognitionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -206,6 +207,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CoreValue.cs" />
     <Compile Include="Models\FullName.cs" />
+    <Compile Include="Models\Gamification.cs" />
     <Compile Include="Models\GiveRecognition.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -306,6 +308,11 @@
     <Content Include="Views\MyRecognitions\Details.cshtml" />
     <Content Include="Views\MyRecognitions\Edit.cshtml" />
     <Content Include="Views\MyRecognitions\Index.cshtml" />
+    <Content Include="Views\Gamifications\Create.cshtml" />
+    <Content Include="Views\Gamifications\Delete.cshtml" />
+    <Content Include="Views\Gamifications\Details.cshtml" />
+    <Content Include="Views\Gamifications\Edit.cshtml" />
+    <Content Include="Views\Gamifications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,6 +23,8 @@ namespace MIS4200Group6.Controllers
             Guid.TryParse(User.Identity.GetUserId(), out userID);
 
             var giveRecognitions = db.GiveRecognitions.Where(g => g.ID == userID).OrderByDescending(g => g.CurentDateTime);
+            var totalRecogs = (from s in giveRecognitions
+                            select s.ID).Count();
             return View(giveRecognitions.ToList());
         }
 

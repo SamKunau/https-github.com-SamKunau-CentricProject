@@ -20,7 +20,7 @@ namespace MIS4200Group6.Controllers
         // GET: GiveRecognitions
         public ActionResult Index()
         {
-            var giveRecognitions = db.GiveRecognitions.Include(g => g.Giver).Include(g => g.UserDetails);
+            var giveRecognitions = db.GiveRecognitions.Include(g => g.UserDetails).Include(g => g.UserDetails);
             return View(giveRecognitions.ToList());
         }
 
