@@ -10,7 +10,8 @@ using MIS4200Group6.Models;
 using System.Web.Mvc;
 
 using Microsoft.AspNet.Identity;
-
+using System.IO;
+using System.Drawing;
 
 namespace MIS4200Group6.Controllers
 {
@@ -68,28 +69,40 @@ namespace MIS4200Group6.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,email,firstName,lastName,phoneNumber,office,Position,HireDate,numberOfYears,photo")] userDetails userDetails, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "ID,email,firstName,lastName,phoneNumber,office,Position,HireDate,numberOfYears,photo")] userDetails userDetails)
         {
 
-            userDetails.photo = "~/Content/Images/";
+           
             if (ModelState.IsValid)
             {
                 
+                HttpPostedFileBase file = Request.Files["photo"];
+                
+                if (file != null && file.FileName != null && file.FileName != "")
+                {
+                    FileInfo fi = new FileInfo(file.FileName);
+                    if (fi.Extension !=".jpeg" && fi.Extension !=".jpg" && fi.Extension !="gif")
+                    {
+                        TempData["Errormsg"] = "Image File Extension is not valid";
+                        return View(userDetails);
+                    }
+                    else
+                    {
+                        userDetails.photo = userDetails.ID + fi.Extension;
+                        file.SaveAs(Server.MapPath("~/Content/Images/" + userDetails.ID + fi.Extension));
+
+                    }
+                }
+
                 Guid memberId;
                 Guid.TryParse(User.Identity.GetUserId(), out memberId);
                 userDetails.ID = memberId;
                 userDetails.email = User.Identity.Name;
                 //userDetails.ID = Guid.NewGuid();
-                db.UserDetails.Add(userDetails);
-
-                
-
-
+                db.UserDetails.Add(userDetails); 
                 db.SaveChanges();
                 return RedirectToAction("Index");
 
-
-                
             }
 
             return View(userDetails);
@@ -130,6 +143,39 @@ namespace MIS4200Group6.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(userDetails).State = EntityState.Modified;
+                HttpPostedFileBase file = Request.Files["photo"];
+                if (file !=null && file.FileName !=null && file.FileName !="")
+                {
+                    FileInfo fi = new FileInfo(file.FileName);
+                    if (fi.Extension !=".jpeg" && fi.Extension !=".jpg" && fi.Extension !="gif")
+                    {
+                        TempData["Errormsg"] = "Image File Extension is not valid";
+                        return View(userDetails);
+                    }
+                    else
+                    {
+                        userDetails imageOld = db.UserDetails.Find(userDetails.ID);
+                        string imageName = imageOld.photo;
+                        string path = Server.MapPath("~/Content/Images/" + imageName);
+                    try
+                        {
+                            if (System.IO.File.Exists(path))
+                            {
+                                System.IO.File.Delete(path);
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                        catch (Exception Ex)
+                        {
+
+                        }
+                        userDetails.photo = userDetails.ID + fi.Extension;
+                        file.SaveAs(Server.MapPath("~/Content/Images/" + userDetails.ID + fi.Extension));
+                    }
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -167,6 +213,16 @@ namespace MIS4200Group6.Controllers
         public ActionResult DeleteConfirmed(Guid id)
         {
             userDetails userDetails = db.UserDetails.Find(id);
+            string imageName = userDetails.photo;
+            string path = Server.MapPath("~/Content/Images/" + imageName);
+            try
+            {
+                System.IO.File.Delete(path);
+            }
+            catch (Exception Ex)
+            {
+
+            }
             db.UserDetails.Remove(userDetails);
             db.SaveChanges();
             return RedirectToAction("Index");

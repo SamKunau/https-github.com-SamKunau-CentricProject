@@ -83,7 +83,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.photo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" name="file" />
+                <img src="~/Content/Images/@Model.photo" height="400" />
+                <input id="photo" type="file" name="photo" />
                
             </div>
         </div>
