@@ -10,6 +10,7 @@ using MIS4200Group6.DAL;
 using MIS4200Group6.Models;
 using System.Net;
 using System.Net.Mail;
+using Microsoft.AspNet.Identity;
 
 namespace MIS4200Group6.Controllers
 {
@@ -42,10 +43,17 @@ namespace MIS4200Group6.Controllers
         // GET: GiveRecognitions/Create
         public ActionResult Create()
         {
-            ViewBag.EmployeeGivingRecog = new SelectList(db.UserDetails, "ID", "fullName");
-            ViewBag.ID = new SelectList(db.UserDetails, "ID", "fullName");
-
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.EmployeeGivingRecog = new SelectList(db.UserDetails, "ID", "fullName");
+                ViewBag.ID = new SelectList(db.UserDetails, "ID", "fullName");
+                return View();
+            }
+            else
+            {
+                return View("NotAuthenticated2");
+            }
+            
         }
 
         // POST: GiveRecognitions/Create
@@ -57,6 +65,9 @@ namespace MIS4200Group6.Controllers
         {
             if (ModelState.IsValid)
             {
+                Guid memberId;
+                Guid.TryParse(User.Identity.GetUserId(), out memberId);
+                giveRecognition.EmployeeGivingRecog = memberId;
                 db.GiveRecognitions.Add(giveRecognition);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,9 +90,20 @@ namespace MIS4200Group6.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EmployeeGivingRecog = new SelectList(db.UserDetails, "ID", "email", giveRecognition.EmployeeGivingRecog);
-            ViewBag.ID = new SelectList(db.UserDetails, "ID", "email", giveRecognition.ID);
-            return View(giveRecognition);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (giveRecognition.EmployeeGivingRecog == memberID)
+            {
+                ViewBag.EmployeeGivingRecog = new SelectList(db.UserDetails, "ID", "fullName", giveRecognition.EmployeeGivingRecog);
+                ViewBag.ID = new SelectList(db.UserDetails, "ID", "fullName", giveRecognition.ID);
+                return View(giveRecognition);
+            }
+            else
+            {
+                return View("NotAuthenticated2");
+            }
+
+          
         }
 
         // POST: GiveRecognitions/Edit/5
@@ -114,7 +136,16 @@ namespace MIS4200Group6.Controllers
             {
                 return HttpNotFound();
             }
-            return View(giveRecognition);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (giveRecognition.EmployeeGivingRecog == memberID)
+            {
+                return View(giveRecognition);
+            }
+            else
+            {
+                return View("NotAuthenticated2");
+            }
         }
 
         // POST: GiveRecognitions/Delete/5

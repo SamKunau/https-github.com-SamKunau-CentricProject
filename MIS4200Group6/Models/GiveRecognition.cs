@@ -13,8 +13,8 @@ namespace MIS4200Group6.Models
         public int EmployeeRecognitionID { get; set; }
 
         [Display(Name = "Date Recognition is Given")]
-        [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime CurentDateTime { get; set; }
         [Display(Name = "Core value recognized")]
         public Values values{ get; set; }

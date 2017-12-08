@@ -16,12 +16,12 @@
             @Html.DisplayNameFor(model => model.values)
         </th>
         <th>
-            Recognizer's 
-            @Html.DisplayNameFor(model => model.Giver.email)
+            Recognizer's Name
+            @*@Html.DisplayNameFor(model => model.Giver.fullName)*@
         </th>
         <th>
-            Recognizee's
-            @Html.DisplayNameFor(model => model.UserDetails.email)
+            Recognizee's Name
+            @*@Html.DisplayNameFor(model => model.UserDetails.fullName)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CurentDateTime)
@@ -41,10 +41,10 @@
             @Html.DisplayFor(modelItem => item.values)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Giver.email)
+            @Html.DisplayFor(modelItem => item.Giver.fullName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UserDetails.email)
+            @Html.DisplayFor(modelItem => item.UserDetails.fullName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CurentDateTime)
