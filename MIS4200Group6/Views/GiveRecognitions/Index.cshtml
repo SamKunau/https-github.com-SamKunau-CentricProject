@@ -55,9 +55,10 @@
        
         
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeRecognitionID }) |
+            @Html.ActionLink("Show individual results", "Index", new { id = item.ID, emp=item.UserDetails.fullName })
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.EmployeeRecognitionID }) |
             @Html.ActionLink("Details", "Details", new { id=item.EmployeeRecognitionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeRecognitionID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeRecognitionID })*@
         </td>
     </tr>
 }

@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Awards";
+    var awardList = ViewBag.AwardList;
+    var awardee = ViewBag.Awardee;
+}
+
+<h2>Awards give to @awardee</h2>
+@{ 
+    foreach (var item in awardList)
+    {
+        var delimiters = new char[] { ',','=','{','}' };
+        var parts = item.ToString().Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+
+        @parts[3].ToString();
+        <span>&nbsp;&nbsp;given&nbsp;  </span>
+        @parts[5].ToString();
+        <span> times</span>
+        <br/><br/>
+    }
+}
+

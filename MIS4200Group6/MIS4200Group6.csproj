@@ -314,6 +314,7 @@
     <Content Include="Views\Gamifications\Edit.cshtml" />
     <Content Include="Views\Gamifications\Index.cshtml" />
     <Content Include="Views\GiveRecognitions\NotAuthenticated2.cshtml" />
+    <Content Include="Views\GiveRecognitions\Awards.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

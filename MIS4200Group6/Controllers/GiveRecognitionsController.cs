@@ -19,10 +19,27 @@ namespace MIS4200Group6.Controllers
         private CentricContext db = new CentricContext();
 
         // GET: GiveRecognitions
-        public ActionResult Index()
+        public ActionResult Index(Guid? ID, string emp)
         {
             var giveRecognitions = db.GiveRecognitions.Include(g => g.UserDetails).Include(g => g.UserDetails);
-            return View(giveRecognitions.ToList());
+
+            if (ID != null)
+            {
+                giveRecognitions = db.GiveRecognitions.Where(g => g.ID == ID).Include(g => g.ID).Include(g => g.values).Include(g => g.EmployeeGivingRecog);
+                ViewBag.Awardee = emp;
+                var awards = (from aw in giveRecognitions
+                              group aw by new
+                              { g = aw.UserDetails.ID, a = aw.values } into e
+                              select new
+                              { receiverID = e.Key.g, awardID = e.Key.a, AwardCount = e.Count() });
+                ViewBag.AwardList = awards.ToList();
+
+                return View("Awards");
+            }
+            else
+            {
+                return View(giveRecognitions.ToList());
+            }
         }
 
         // GET: GiveRecognitions/Details/5
